@@ -17,6 +17,7 @@ You should have received a copy of the GNU Lesser General Public License along w
 ## Index
 
 - [Constants](<#constants>)
+- [func ChecksumVersion\(args ChecksumVersionArgs\) \(string, error\)](<#ChecksumVersion>)
 - [type AssetsFeatureReleasesArgs](<#AssetsFeatureReleasesArgs>)
   - [func NewAssetsFeatureReleasesArgs\(\) AssetsFeatureReleasesArgs](<#NewAssetsFeatureReleasesArgs>)
 - [type AssetsFeatureReleasesResponse](<#AssetsFeatureReleasesResponse>)
@@ -26,6 +27,8 @@ You should have received a copy of the GNU Lesser General Public License along w
 - [type AssetsLatestResponse](<#AssetsLatestResponse>)
   - [func AssetsLatest\(args AssetsLatestArgs\) \(AssetsLatestResponse, error\)](<#AssetsLatest>)
 - [type Binary](<#Binary>)
+- [type ChecksumVersionArgs](<#ChecksumVersionArgs>)
+  - [func NewChecksumVersionArgs\(\) ChecksumVersionArgs](<#NewChecksumVersionArgs>)
 - [type Package](<#Package>)
 - [type ReleaseNotes](<#ReleaseNotes>)
 - [type Source](<#Source>)
@@ -55,6 +58,15 @@ const (
     DefaultPageSize       = 10
 )
 ```
+
+<a name="ChecksumVersion"></a>
+## func ChecksumVersion
+
+```go
+func ChecksumVersion(args ChecksumVersionArgs) (string, error)
+```
+
+ChecksumVersion returns the checksum link for a given release ReleaseName MUST be changed to a specific release name
 
 <a name="AssetsFeatureReleasesArgs"></a>
 ## type AssetsFeatureReleasesArgs
@@ -258,6 +270,33 @@ type Binary struct {
     UpdatedAt     time.Time `json:"updated_at"`
 }
 ```
+
+<a name="ChecksumVersionArgs"></a>
+## type ChecksumVersionArgs
+
+
+
+```go
+type ChecksumVersionArgs struct {
+    Arch        string
+    HeapSize    string
+    ImageType   string
+    JvmImpl     string
+    Os          string
+    ReleaseName string
+    Vendor      string
+    Project     string
+}
+```
+
+<a name="NewChecksumVersionArgs"></a>
+### func NewChecksumVersionArgs
+
+```go
+func NewChecksumVersionArgs() ChecksumVersionArgs
+```
+
+NewChecksumVersionArgs creates a new ChecksumVersionArgs struct with default values ReleaseName MUST be changed to a specific release name
 
 <a name="Package"></a>
 ## type Package
