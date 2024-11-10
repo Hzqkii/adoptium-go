@@ -1,0 +1,36 @@
+name: Generate Docs
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.23
+        
+    - name: GenDocs
+      id: GenDocs
+      run: |
+        go get github.com/princjef/gomarkdoc/cmd/gomarkdoc@v1.1.0
+        go install github.com/princjef/gomarkdoc/cmd/gomarkdoc
+        gomarkdoc . > ./doc/README.md
+        echo "Changes: $(git diff ./doc/README.md | wc -c)"
+    
+    - name: Commit Changes
+      run: |
+        git config --global user.name 'AutoDocAction'
+        git config --global user.email 'AutoDocAction@no-reply.com'
+        git add ./doc/README.md
+        git commit -m "auto generated docs"
+        
+        # Push changes using GITHUB_TOKEN
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
