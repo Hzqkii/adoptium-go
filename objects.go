@@ -94,6 +94,17 @@ type AssetsFeatureReleasesResponse []struct {
 	VersionData       Version      `json:"version_data"`
 }
 
+type ChecksumVersionArgs struct {
+	Arch        string
+	HeapSize    string
+	ImageType   string
+	JvmImpl     string
+	Os          string
+	ReleaseName string
+	Vendor      string
+	Project     string
+}
+
 type TypesArchitecturesResponse []string
 
 type TypesOperatingSystemsResponse []string

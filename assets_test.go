@@ -28,6 +28,14 @@ func TestAssetsLatest(t *testing.T) {
 			expectError:    false,
 			expectNonEmpty: true,
 		},
+    {
+      name: "Valid request with Defaults",
+      modifyArgs: func(args *AssetsLatestArgs) {
+        
+      },
+      expectError:    false,
+      expectNonEmpty: true,
+    },
 		{
 			name: "Invalid feature version",
 			modifyArgs: func(args *AssetsLatestArgs) {

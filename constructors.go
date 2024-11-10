@@ -26,3 +26,18 @@ func NewAssetsFeatureReleasesArgs() AssetsFeatureReleasesArgs {
 		Vendor:         DefaultVendor,
 	}
 }
+
+// NewChecksumVersionArgs creates a new ChecksumVersionArgs struct with default values
+// ReleaseName MUST be changed to a specific release name
+func NewChecksumVersionArgs() ChecksumVersionArgs {
+  return ChecksumVersionArgs{
+    Arch:        DefaultArch,
+    HeapSize:    DefaultHeapSize,
+    ImageType:   DefaultImageType,
+    JvmImpl:     DefaultJvmImpl,
+    Os:          DefaultOs,
+    ReleaseName: "",
+    Vendor:      DefaultVendor,
+    Project:     DefaultProject,
+  }
+}

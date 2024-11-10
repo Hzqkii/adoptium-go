@@ -7,19 +7,17 @@ import (
 )
 
 func TestTypesArchitectures(t *testing.T) {
-	r, err := TypesArchitectures()
+	_, err := TypesArchitectures()
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println(r)
 }
 
 func TestTypesOperatingSystems(t *testing.T) {
-	r, err := TypesOperatingSystems()
+	_, err := TypesOperatingSystems()
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println(r)
 }
 
 func ExampleTypesArchitectures() {
