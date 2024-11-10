@@ -21,7 +21,7 @@ func AssetsFeatureReleases(args AssetsFeatureReleasesArgs) (AssetsFeatureRelease
 // AssetsLatest fetches the latest assets for a given feature version, JVM implementation, architecture,
 // image type, OS, and vendor.
 // It returns the asset details in an AssetsLatestResponse struct or an error if the request fails.
-// API Documentation: https://api.adoptium.net/q/swagger-ui/#/Assets/getLatestAssets asdf
+// API Documentation: https://api.adoptium.net/q/swagger-ui/#/Assets/getLatestAssets
 func AssetsLatest(args AssetsLatestArgs) (AssetsLatestResponse, error) {
 	fmtstr := "https://api.adoptium.net/v3/assets/latest/%s/%s?architecture=%s&image_type=%s&os=%s&vendor=%s"
 	url := fmt.Sprintf(fmtstr, args.FeatureVersion, args.JvmImpl, args.Arch, args.ImageType, args.Os, args.Vendor)
