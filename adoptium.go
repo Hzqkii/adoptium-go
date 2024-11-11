@@ -1,4 +1,5 @@
 /*
+adoptium-go is a WIP Go library for the Adoptium API.
 <adoptium.go>
 Copyright (C) <2024>  <hybridkernel>
 
