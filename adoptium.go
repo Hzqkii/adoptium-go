@@ -24,6 +24,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+  "runtime"
 )
 
 const (
@@ -31,7 +32,7 @@ const (
 	DefaultHeapSize       = "normal"
 	DefaultImageType      = "jdk"
 	DefaultJvmImpl        = "hotspot"
-	DefaultOs             = "linux"
+	DefaultOs             = runtime.GOOS
 	DefaultVendor         = "adoptium"
 	DefaultReleaseType    = "ga"
 	DefaultProject        = "jdk"
