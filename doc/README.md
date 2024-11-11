@@ -6,7 +6,7 @@
 import "github.com/Hzqkii/adoptium-go"
 ```
 
-\<adoptium.go\> Copyright \(C\) \<2024\> \<hybridkernel\>
+adoptium\-go is a WIP Go library for the Adoptium API. \<adoptium.go\> Copyright \(C\) \<2024\> \<hybridkernel\>
 
 This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or \(at your option\) any later version.
 
