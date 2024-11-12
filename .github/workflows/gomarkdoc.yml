@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+
 jobs:
   docs:
     runs-on: ubuntu-latest
@@ -28,9 +29,11 @@ jobs:
       run: |
         git config --global user.name 'AutoDocAction'
         git config --global user.email 'AutoDocAction@no-reply.com'
-        git add ./doc/README.md
-        git commit -m "auto generated docs"
         
-        # Push changes using GITHUB_TOKEN
-        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
+        # Add and commit docs with last commit message
+        git add ./doc/README.md
+        last_commit_msg=$(git log -1 --pretty=%B)
+        git commit --amend -m "$last_commit_msg" --no-edit
+        
+        # Push the changes forcefully to overwrite the last commit
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git --force
